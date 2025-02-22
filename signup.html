@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SakhaSamprk - Sign Up</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+<body>
+    <div class="screen">
+        <div class="setup-container">
+            <h2>Join SakhaSamprk</h2>
+            <div class="input-group">
+                <input type="text" id="display-name" placeholder="Display Name">
+                <input type="text" id="username" placeholder="Username" autocomplete="username">
+                <input type="password" id="password" placeholder="Password" autocomplete="new-password">
+                <input type="password" id="confirm-password" placeholder="Confirm Password" autocomplete="new-password">
+                <button id="signup-btn" class="btn-primary">Create Account</button>
+                <p class="auth-switch">Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    
+    <!-- Application Scripts -->
+    <script type="module" src="js/modules/auth.js"></script>
+    <script type="module" src="js/signup.js"></script>
+</body>
+</html>

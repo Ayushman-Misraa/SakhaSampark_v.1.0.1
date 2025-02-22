@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SakhaSamprk - Serverless Chat</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Lottie Player -->
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-container">
+        <dotlottie-player 
+            src="https://lottie.host/4ae8d04e-511b-4da9-a29d-09011e65264a/HMtQ81ervJ.lottie" 
+            background="transparent" 
+            speed="1" 
+            style="width: 300px; height: 300px" 
+            loop 
+            autoplay>
+        </dotlottie-player>
+        <h1>SakhaSamprk</h1>
+        <p>Connecting to the future of chat...</p>
+    </div>
+
+    <!-- User Setup Screen -->
+    <div id="user-setup" class="screen hidden">
+        <div class="setup-container">
+            <h2>Welcome to SakhaSamprk</h2>
+            <div class="input-group">
+                <input type="text" id="display-name" placeholder="Enter your display name">
+                <button id="start-chat" class="btn-primary">Start Chatting</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Options Screen -->
+    <div id="chat-options" class="screen hidden">
+        <div class="options-container">
+            <div class="options-header">
+                <h2>Choose Your Chat Experience</h2>
+                <button id="logout-btn" class="btn-secondary">Logout</button>
+            </div>
+            <div class="options-grid">
+                <div class="option-card" id="private-chat">
+                    <h3>Private Chat Place</h3>
+                    <p>One-on-one secure messaging</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Private Chat Screen -->
+    <div id="private-chat-screen" class="screen hidden">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="header-left">
+                    <button class="back-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                        Back
+                    </button>
+                    <h3>Private Chat</h3>
+                    <div class="connection-status">
+                        <span class="status-indicator"></span>
+                        <span class="status-text">Disconnected</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="peer-info-display">
+                        <span>Your ID: </span>
+                        <span id="my-peer-id">Connecting...</span>
+                        <button class="copy-btn" title="Copy ID">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M4 2h8v2H4V2zM2 5h12v9H2V5zm2 2v5h8V7H4z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="peer-connection">
+                        <input type="text" id="peer-id-input" placeholder="Enter Peer ID to connect">
+                        <button id="connect-peer" class="btn-secondary">Connect</button>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-content">
+                <div class="messages-container" id="private-messages"></div>
+                <div class="chat-sidebar">
+                    <div class="connection-info">
+                        <h4>Connection Info</h4>
+                        <div class="connected-peer">
+                            <span class="status-indicator"></span>
+                            <span id="connected-peer-name">Not connected</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="private-msg-input" placeholder="Type your message...">
+                <button id="send-private" class="btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.5.5 0 0 1-.9.1l-2.79-3.487-3.487 2.79a.5.5 0 0 1-.8-.4v-3.986l9.037-9.037a.5.5 0 0 1 .708 0l3.95 3.95z"/>
+                    </svg>
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <!-- Application Scripts -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
